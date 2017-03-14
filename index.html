@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Configuration options -->
+        <script>
+        let options = {
+            // Clock and date
+            showSeconds: true,
+            mode: 0,
+            smallDate: false,
+            dateFormat: 0,
+            monospaceClock: true,
+            
+            // Newsfeed
+            codeBlockScroll: false,
+            stableSpeed: true,
+                speed: 60,
+            
+            // Main layout
+            blueBackground: true,
+                transparentCards: true,
+            
+            // Quote
+            sansFontQuote: false,
+            stableQuote: true,
+                quoteSpeed: 70,
+            
+            // Misc.
+            fixFileProtocol: true
+        };
+        </script>
+        
+        <meta charset = "utf-8" />
+        <meta name = "viewport" content = "width=device-width, initial-scale=1" />
+        <meta name = "application-name" content = "Mr. Chisolm’s display" />
+        <meta name = "author" content = "ARM32" />
+        
+        <title>Mr. Chisolm’s display</title>
+        
+        <!-- Link Google Fonts, adding custom fonts to the website -->
+        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Roboto+Mono:300,400|Roboto+Slab:300|Roboto:400,400i,500,700,700i" />
+        
+        <!-- Markdown parser -->
+        <script src = "js/lib/marked.js"></script>
+        
+        <link rel = "stylesheet" href = "css/main.css" />
+        <script src = "js/content-load.js" defer></script>
+        <script src = "js/header-update.js" defer></script>
+    </head>
+    <body>
+        <header id = "main-header">
+            <div id = "top-row" class = "row">
+                <span id = "time" class = "left"></span>
+            </div>
+            <div id = "center-row" class = "row">
+                <span id = "school-name" class = "center">Byron Northview<span id = "slogan">Home of the Bobcats</span></span>
+            </div>
+            <div id = "bottom-row" class = "row">
+                <span id = "date" class = "left"></span>
+            </div>
+        </header>
+        <aside id = "newsfeed-container">
+            <main id = "newsfeed">
+                <!-- Please place content in newsfeed.md -->
+            </main>
+        </aside>
+        <main id = "video-container">
+            <!-- Please paste video embed codes in in video.html -->
+        </main>
+        <footer id = "quote">
+            <span>“<b id = "quote-text"></b>” –<b id = "quote-author"></b></span>
+        </footer>
+    </body>
+</html>
