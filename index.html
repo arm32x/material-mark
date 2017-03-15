@@ -14,19 +14,27 @@
             // Newsfeed
             codeBlockScroll: false,
             stableSpeed: true,
-                speed: 40,
+            speed: 40,
             
             // Main layout
             blueBackground: true,
-                transparentCards: false,
+            transparentCards: false,
+            darkerGrayBg: false,
             
             // Quote
             sansFontQuote: false,
             stableQuote: true,
-                quoteSpeed: 70,
+            quoteSpeed: 70,
             
             // Video player
             videoRoundCorners: true,
+            
+            // Weather widget
+            cityId: 6058560,
+            apiKey: "99403a5bba50c8ee3d5a2af2c5a571a4",
+            updateHours: [2, 5, 8, 11, 14, 17, 20, 23],
+            requestsPerUpdate: 1,
+            delayBetweenRequests: 40,
             
             // Misc.
             fixFileProtocol: true
@@ -54,12 +62,16 @@
         <header id = "main-header">
             <div id = "top-row" class = "row">
                 <span id = "time" class = "left"></span>
+                <span id = "temp" class = "right"></span>
+                <span id = "weather-icon" class = "right"></span>
             </div>
             <div id = "center-row" class = "row">
                 <span id = "school-name" class = "center">Byron Northview<span id = "slogan">Home of the Bobcats</span></span>
+                <span id = "weather" class = "right"></span>
             </div>
             <div id = "bottom-row" class = "row">
                 <span id = "date" class = "left"></span>
+                <span id = "weather-last-updated" class = "right"></span>
             </div>
         </header>
         <aside id = "newsfeed-container">

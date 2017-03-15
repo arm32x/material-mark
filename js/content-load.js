@@ -5,6 +5,10 @@
         if (options.transparentCards) {
             html.classList.add ("transparent-cards");
         }
+    } else {
+        if (options.darkerGrayBg || options.darkerGreyBg) {
+            html.classList.add ("darker-gray-bg");
+        }
     }
     if (options.codeBlockScroll) {
         html.classList.add ("code-block-scroll");

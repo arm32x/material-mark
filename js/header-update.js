@@ -10,14 +10,50 @@
 //           5: 6:37pm (am/pm indicator, no space)
 
 let dateObject = new Date ();
+let lastWeatherUpdateSeconds;
 
-function updateTime () {
-    let timeSpan = document.getElementById ("time");
-    let dateSpan = document.getElementById ("date");
+function updateWeather (callback) {
+    console.log ("wEaThEr UpDaTeR lOaDeD aNd ReAdY tO gO");
     
+    let xhr = new XMLHttpRequest ();
+    xhr.responseType = "json";
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+            let data = xhr.response;
+            if (data && data.cod == 200) {
+                callback (data.main, data.weather, data.wind, data);
+            }
+        }
+    }
+    xhr.open ("GET", `http://api.openweathermap.org/data/2.5/weather?id=${options.cityId}&APPID=${options.apiKey}&units=metric`);
+    xhr.send ();
+}
+
+function applyWeather (main, conditions, wind, data) {
+    console.log ("tHe TeMpErAtUrE iS " + main.temp + " dEgReEs CeLsIuS");
+    console.log ("ThErE Is " + conditions[0].main + " ToDaY");
+    console.log ("tHe WiNd iS gOiNg At A fAsT sPeEd Of " + wind.speed + " MeTrEs PeR sEcOnD");
+    
+    document.getElementById ("temp").innerHTML = main.temp;
+    
+    let icon = conditions[0].icon.slice (0, 2);
+    let img = document.createElement ("img");
+    img.src = `images/icons/weather-${icon}.svg`
+    document.getElementById ("weather-icon").innerHTML = img.outerHTML;
+    
+    document.getElementById ("weather").innerHTML = conditions[0].description[0].toUpperCase () + conditions[0].description.slice (1);
+    
+    dateObject.setTime (data.dt);
+    let formattedDate, fakeTimeSpan = { innerHTML: null }, fakeDateSpan = { innerHTML: null };
+    updateTime (fakeTimeSpan, fakeDateSpan);
+    document.getElementById ("weather-last-updated").innerHTML = `Updated on ${fakeDateSpan.innerHTML}, at ${fakeTimeSpan.innerHTML}`
+}
+
+function updateTime (timeSpan, dateSpan) {
     dateObject.setTime (Date.now ());
     
     let hours = dateObject.getHours ();
+    let weatherHours = hours;
     let suffix = "";
     switch (options.mode) {
         case 2:
@@ -44,8 +80,9 @@ function updateTime () {
     if (minutes < 10) {
         minutes = "0" + minutes;
     }
+    let seconds;
     if (options.showSeconds) {
-        let seconds = dateObject.getSeconds ();
+        seconds = dateObject.getSeconds ();
         if (seconds < 10) {
             seconds = "0" + seconds;
         }
@@ -86,7 +123,18 @@ function updateTime () {
             break;
     }
     
-    window.requestAnimationFrame (updateTime);
+    if (options.updateHours.indexOf (weatherHours) != -1 && lastWeatherUpdateSeconds != parseInt (seconds, 10)) {
+        for (let index = 0; index < options.requestsPerUpdate * 40; index += 40) {
+            if (index == parseInt (seconds, 10)) {
+                lastWeatherUpdateSeconds = parseInt (seconds, 10);
+                updateWeather (applyWeather);
+                break;
+            }
+        }
+    } 
+    
+    window.requestAnimationFrame (() => { updateTime (document.getElementById ("time"), document.getElementById ("date")); });
 }
 
-updateTime ();
+updateWeather (applyWeather);
+updateTime (document.getElementById ("time"), document.getElementById ("date"));

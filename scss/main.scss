@@ -5,6 +5,9 @@ html {
     &.blue-background {
         background-color: material-color("indigo", "500");
     }
+    &.darker-gray-bg {
+        background-color: #e0e0e0;
+    }
     background-color: #fafafa;
     font-family: $font-family;
     
@@ -74,6 +77,65 @@ html {
                 
                 padding-left: 20px;
                 transform: translateY(-4px);
+            }
+            
+            &#temp {
+                @include material-text("Display 3");
+                
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                height: 88px;
+                line-height: 88px;
+                padding: 20px;
+                padding-right: 160px;
+                html.monospace-clock & {
+                    font-family: "Roboto Mono", "Droid Sans Mono", "Monaco", monospace;
+                }
+                
+                &::after {
+                    @extend small;
+                    
+                    content: " °C";
+                }
+            }
+            
+            &#weather {
+                @include material-text("Title");
+                
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                padding: 20px;
+                padding-right: 160px;
+                transform: translateY(20px);
+            }
+            
+            &#weather-icon {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                height: 120px;
+                width: 96px;
+                padding: 16px;
+                padding-right: 32px;
+                
+                img {
+                    width: 96px;
+                    height: 96px;
+                    margin: 12px 0px;
+                }
+            }
+            
+            &#weather-last-updated {
+                @include material-text("Caption");
+                
+                color: $w-hint-text-color;
+                line-height: 12px;
+                
+                small {
+                    font-size: 100%;
+                }
             }
         }
     }
