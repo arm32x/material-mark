@@ -339,16 +339,20 @@ footer#quote {
   position: fixed;
   top: 208px;
   right: 16px; }
-  /* line 359, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
+  /* line 358, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
+  html.video-round-corners #video-container {
+    border-radius: 2px;
+    overflow: hidden; }
+  /* line 363, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
   #video-container iframe {
     width: 100%;
     height: 100%;
     border: none; }
 
-/* line 366, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
+/* line 370, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
 ::selection {
   background-color: #82b1ff; }
-  /* line 367, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
+  /* line 371, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
   html.transparent-cards ::selection {
     background-color: rgba(255, 255, 255, 0.2); }
 

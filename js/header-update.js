@@ -27,10 +27,10 @@ function updateTime () {
             suffix = " " + (hours > 11 ? "p" : "a" + "m");
             break;
         case 4:
-            suffix = hours > 11 ? "P" : "A" + "M";
+            suffix = (hours > 11 ? "P" : "A") + "M";
             break;
         case 5:
-            suffix = hours > 11 ? "p" : "a" + "m";
+            suffix = (hours > 11 ? "p" : "a") + "m";
             break;
     }
     if (options.mode != 1) {
@@ -73,13 +73,16 @@ function updateTime () {
             dateSpan.innerHTML = dayOfWeekName + ", " + monthName + " " + dayOfMonth + ", " + year;
             break;
         case 1:
-            dateSpan.innerHTML = (dateObject.getMonth () + 1) + "/" + dayOfMonth + "/" + year;
+            dateSpan.innerHTML = month + "/" + dayOfMonth2 + "/" + year;
             break;
         case 2:
-            dateSpan.innerHTML = year + "." + (dateObject.getMonth () + 1) + "." + dayOfMonth;
+            dateSpan.innerHTML = year + "." + month + "." + dayOfMonth2;
             break;
         case 3:
             dateSpan.innerHTML = dayOfWeekName + ", the " + dayOfMonth + nth + " of " + monthName + ", " + year;
+            break;
+        case 4:
+            dateSpan.innerHTML = dayOfWeekName + " the " + dayOfMonth + nth + " of " + monthName + ", " + year;
             break;
     }
     

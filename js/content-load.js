@@ -15,6 +15,9 @@
     if (options.monospaceClock) {
         html.classList.add ("monospace-clock");
     }
+    if (options.videoRoundCorners) {
+        html.classList.add ("video-round-corners");
+    }
 }
 
 {// Load newsfeed content from Markdown file
