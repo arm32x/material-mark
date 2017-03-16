@@ -12,7 +12,56 @@
 let dateObject = new Date ();
 let lastWeatherUpdateSeconds;
 
-function updateWeather (callback) {
+function closest (num, arr) {
+    var curr = arr[0];
+    var diff = Math.abs (num - curr);
+    for (var val = 0; val < arr.length; val++) {
+        console.log (curr);
+        if (arr[val] > num) {
+            console.log ("skipped");
+            continue;
+        }
+        var newdiff = Math.abs (num - arr[val]);
+        if (newdiff < diff) {
+            diff = newdiff;
+            curr = arr[val];
+        }
+    }
+    return curr;
+}
+
+function getLastWeatherUpdateTime () {
+    let hours = closest (dateObject.getHours (), options.updateHours);
+    let suffix = "";
+    switch (options.mode) {
+        case 2:
+            suffix = " " + (hours > 11 ? "P" : "A" + "M");
+            break;
+        case 3:
+            suffix = " " + (hours > 11 ? "p" : "a" + "m");
+            break;
+        case 4:
+            suffix = (hours > 11 ? "P" : "A") + "M";
+            break;
+        case 5:
+            suffix = (hours > 11 ? "p" : "a") + "m";
+            break;
+    }
+    if (options.mode != 1) {
+        if (hours > 12) {
+            hours -= 12;
+        } else if (hours == 0) {
+            hours = 12;
+        }
+    }
+    if (options.showSeconds) {
+        return hours + ":00<small>:00" + suffix + "</small>";
+    } else {
+        return hours + ":00<small>" + suffix + "</small>";
+    }
+}
+
+function updateWeather (callback, other) {
     console.log ("wEaThEr UpDaTeR lOaDeD aNd ReAdY tO gO");
     
     let xhr = new XMLHttpRequest ();
@@ -21,7 +70,7 @@ function updateWeather (callback) {
         if (xhr.readyState == 4) {
             let data = xhr.response;
             if (data && data.cod == 200) {
-                callback (data.main, data.weather, data.wind, data);
+                callback (data.main, data.weather, data.wind, data, other);
             }
         }
     }
@@ -29,7 +78,7 @@ function updateWeather (callback) {
     xhr.send ();
 }
 
-function applyWeather (main, conditions, wind, data) {
+function applyWeather (main, conditions, wind, data, other) {
     console.log ("tHe TeMpErAtUrE iS " + main.temp + " dEgReEs CeLsIuS");
     console.log ("ThErE Is " + conditions[0].main + " ToDaY");
     console.log ("tHe WiNd iS gOiNg At A fAsT sPeEd Of " + wind.speed + " MeTrEs PeR sEcOnD");
@@ -46,7 +95,7 @@ function applyWeather (main, conditions, wind, data) {
     dateObject.setTime (data.dt);
     let formattedDate, fakeTimeSpan = { innerHTML: null }, fakeDateSpan = { innerHTML: null };
     updateTime (fakeTimeSpan, fakeDateSpan);
-    document.getElementById ("weather-last-updated").innerHTML = `Updated on ${fakeDateSpan.innerHTML}, at ${fakeTimeSpan.innerHTML}`
+    document.getElementById ("weather-last-updated").innerHTML = `Requested on ${fakeDateSpan.innerHTML}, at ${fakeTimeSpan.innerHTML}<br />Updated on ${fakeDateSpan.innerHTML}, at ${other.formattedTime}`;
 }
 
 function updateTime (timeSpan, dateSpan) {
@@ -127,7 +176,7 @@ function updateTime (timeSpan, dateSpan) {
         for (let index = 0; index < options.requestsPerUpdate * 40; index += 40) {
             if (index == parseInt (seconds, 10)) {
                 lastWeatherUpdateSeconds = parseInt (seconds, 10);
-                updateWeather (applyWeather);
+                updateWeather (applyWeather, { formattedTime: getLastWeatherUpdateTime () });
                 break;
             }
         }
@@ -136,5 +185,5 @@ function updateTime (timeSpan, dateSpan) {
     window.requestAnimationFrame (() => { updateTime (document.getElementById ("time"), document.getElementById ("date")); });
 }
 
-updateWeather (applyWeather);
+updateWeather (applyWeather, { formattedTime: getLastWeatherUpdateTime () });
 updateTime (document.getElementById ("time"), document.getElementById ("date"));

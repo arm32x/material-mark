@@ -13,6 +13,229 @@ html {
     
     body {
         margin: 0px;
+        
+        &.help {
+            @include material-elevation(2);
+            
+            padding: 16px 48px;
+            width: 65vw;
+            margin: 16px auto;
+            min-height: calc(100vh - 64px);
+            height: auto;
+            background-color: #ffffff;
+            border-radius: 2px;
+            position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+            
+            #back-link {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                padding: 8px;
+                border-radius: 64px;
+                margin: 12px;
+                height: 24px;
+                width: 24px;
+                transition: background-color 375ms $swift-out;
+                
+                &:hover {
+                    background-color: rgba(#000000, 0.2);
+                }
+                
+                #back-icon {
+                    opacity: 0.54;
+                }
+            }
+        }
+    }
+}
+
+#help-icon {
+    padding: 20px;
+    margin: -20px auto !important;
+    
+    a {
+        opacity: 0;
+        transition: background-color 375ms $swift-out, opacity 200ms $swift-out;
+        width: 24px;
+        height: 24px;
+        padding: 8px;
+        margin: -8px;
+        border-radius: 64px;
+        display: inline-block;
+
+        &:hover {
+            background-color: rgba(#ffffff, 0.2);
+            opacity: 1;
+        }
+    }
+    
+    &:hover a {
+        opacity: 1;
+    }
+}
+
+#body {
+    @include material-text("Body");
+
+    html.transparent-cards & {
+        color: $w-primary-text-color;
+    }
+    color: $primary-text-color;
+
+    p {
+        margin: {
+            top: 16px;
+            right: 0px;
+            bottom: 16px;
+            left: 0px;
+        };
+    }
+
+    blockquote {
+        html.transparent-cards & {
+            color: $w-secondary-text-color;
+        }
+        color: $secondary-text-color;
+        margin: {
+            top: 8px;
+            right: 0px;
+            bottom: 8px;
+            left: 8px;
+        };
+        font-style: italic;
+        html.transparent-cards & {
+            border-left-color: $w-divider-color;
+        }
+        border-left: 1px solid $divider-color;
+        padding: {
+            top: 8px;
+            right: 0px;
+            bottom: 8px;
+            left: 24px;
+        };
+
+        i, em {
+            font-style: normal;
+        }
+
+        p {
+            margin: {
+                top: 0px;
+                bottom: 0px;
+            }
+        }
+    }
+
+    h1 {
+        @include material-text("Display 2");
+    }
+
+    h2 {
+        @include material-text("Display 1");
+    }
+
+    h3 {
+        @include material-text("Headline");
+    }
+
+    h4 {
+        @include material-text("Title");
+    }
+
+    h5 {
+        @include material-text("Subheading");
+    }
+
+    h6 {
+        @include material-text("Body 2");
+    }
+
+    hr {
+        margin: {
+            top: 16px;
+            right: -16px;
+            bottom: 16px;
+            left: -16px;
+        };
+        border: none;
+        html.transparent-cards & {
+            border-bottom-color: $w-divider-color;
+        }
+        border-bottom: 1px solid $divider-color;
+    }
+
+    ul, ol {
+        padding-left: 20px;
+        margin: {
+            top: 16px;
+            right: 0px;
+            bottom: 16px;
+            left: 0px;
+        };
+
+        li {
+            margin-bottom: 4px;
+        }
+    }
+
+    a {
+        html.transparent-cards & {
+            color: material-color("blue", "a100");
+        }
+        color: material-color("blue", "a200");
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    i, em {
+        font-style: italic;
+    }
+
+    b, strong {
+        font-weight: bold;
+    }
+
+    code {
+        font-family: "Roboto Mono", "Droid Sans Mono", "Monaco", monospace;
+        html.transparent-cards & {
+            background-color: transparent;
+            border: 1px solid $w-divider-color;
+        }
+        background-color: #f5f5f5;
+        border-radius: 2px;
+        padding: 1px 4px;
+        margin: 0px 2px;
+    }
+
+    pre {
+        margin: 16px 0px;
+        html:not(.code-block-scroll) & {
+            white-space: pre-wrap;
+        }
+
+        code {
+            display: block;
+            font-size: 10pt;
+            padding: 8px;
+            margin: 0px;
+            overflow-x: auto;
+        }
+    }
+
+    > img {
+        border-radius: 2px;
+    }
+
+    ::selection {
+        html.transparent-cards & {
+            background-color: rgba(#ffffff, 0.2);
+        }
+        background-color: material-color("blue", "a100");
     }
 }
 
@@ -131,7 +354,7 @@ html {
                 @include material-text("Caption");
                 
                 color: $w-hint-text-color;
-                line-height: 12px;
+                line-height: 16px;
                 
                 small {
                     font-size: 100%;
@@ -244,167 +467,9 @@ footer#quote {
     padding: 0px 16px;
     
     #newsfeed, body.help {
-        @include material-text("Body");
+        @extend #body;
         
         animation: newsfeed-scroll 30s linear infinite;
-        html.transparent-cards & {
-            color: $w-primary-text-color;
-        }
-        color: $primary-text-color;
-
-        p {
-            margin: {
-                top: 16px;
-                right: 0px;
-                bottom: 16px;
-                left: 0px;
-            };
-        }
-        
-        blockquote {
-            html.transparent-cards & {
-                color: $w-secondary-text-color;
-            }
-            color: $secondary-text-color;
-            margin: {
-                top: 8px;
-                right: 0px;
-                bottom: 8px;
-                left: 8px;
-            };
-            font-style: italic;
-            html.transparent-cards & {
-                border-left-color: $w-divider-color;
-            }
-            border-left: 1px solid $divider-color;
-            padding: {
-                top: 8px;
-                right: 0px;
-                bottom: 8px;
-                left: 24px;
-            };
-            
-            i, em {
-                font-style: normal;
-            }
-            
-            p {
-                margin: {
-                    top: 0px;
-                    bottom: 0px;
-                }
-            }
-        }
-        
-        h1 {
-            @include material-text("Display 2");
-        }
-        
-        h2 {
-            @include material-text("Display 1");
-        }
-        
-        h3 {
-            @include material-text("Headline");
-        }
-        
-        h4 {
-            @include material-text("Title");
-        }
-        
-        h5 {
-            @include material-text("Subheading");
-        }
-        
-        h6 {
-            @include material-text("Body 2");
-        }
-        
-        hr {
-            margin: {
-                top: 16px;
-                right: -16px;
-                bottom: 16px;
-                left: -16px;
-            };
-            border: none;
-            html.transparent-cards & {
-                border-bottom-color: $w-divider-color;
-            }
-            border-bottom: 1px solid $divider-color;
-        }
-        
-        ul, ol {
-            padding-left: 20px;
-            margin: {
-                top: 16px;
-                right: 0px;
-                bottom: 16px;
-                left: 0px;
-            };
-            
-            li {
-                margin-bottom: 4px;
-            }
-        }
-        
-        a {
-            html.transparent-cards & {
-                color: material-color("blue", "a100");
-            }
-            color: material-color("blue", "a200");
-            text-decoration: none;
-            
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-        
-        i, em {
-            font-style: italic;
-        }
-        
-        b, strong {
-            font-weight: bold;
-        }
-        
-        code {
-            font-family: "Roboto Mono", "Droid Sans Mono", "Monaco", monospace;
-            html.transparent-cards & {
-                background-color: transparent;
-                border: 1px solid $w-divider-color;
-            }
-            background-color: #f5f5f5;
-            border-radius: 2px;
-            padding: 1px 4px;
-            margin: 0px 2px;
-        }
-        
-        pre {
-            margin: 16px 0px;
-            html:not(.code-block-scroll) & {
-                white-space: pre-wrap;
-            }
-            
-            code {
-                display: block;
-                font-size: 10pt;
-                padding: 8px;
-                margin: 0px;
-                overflow-x: auto;
-            }
-        }
-        
-        > img {
-            border-radius: 2px;
-        }
-        
-        ::selection {
-            html.transparent-cards & {
-                background-color: rgba(#ffffff, 0.2);
-            }
-            background-color: material-color("blue", "a100");
-        }
     }
 }
 
