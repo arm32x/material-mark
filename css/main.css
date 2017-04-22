@@ -1,467 +1,307 @@
-@charset "UTF-8";
-@keyframes quote-scroll {
-  0% {
-    transform: translateX(100vw); }
-  100% {
-    transform: translateX(calc(-100% - 8px)); } }
-
-@keyframes newsfeed-scroll {
-  0% {
-    transform: translateY(calc(100vh - 304px)); }
-  100% {
-    transform: translateY(calc(-100% - 48px)); } }
-
-/* line 4, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
+/* line 19, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
 html {
-  background-color: #fafafa;
-  font-family: "Roboto", "Noto Sans", "Arial", "Helvetica", sans-serif; }
-  /* line 5, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html.blue-background {
-    background-color: #3f51b5; }
-  /* line 8, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html.darker-gray-bg {
-    background-color: #e0e0e0; }
-  /* line 14, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
+  font-family: "Roboto Mono", "Droid Sans Mono", "Monaco", monospace;
+  font-size: 10pt;
+  background-color: #181a1c; }
+  /* line 24, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
   html body {
     margin: 0px; }
-    /* line 17, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    html body.help {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-      padding: 16px 48px;
-      width: 65vw;
-      margin: 16px auto;
-      min-height: calc(100vh - 64px);
-      height: auto;
-      background-color: #ffffff;
-      border-radius: 2px;
-      position: relative;
-      overflow-x: hidden;
-      overflow-y: auto; }
-      /* line 31, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      html body.help #back-link {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        padding: 8px;
-        border-radius: 64px;
-        margin: 12px;
-        height: 24px;
-        width: 24px;
-        transition: background-color 375ms cubic-bezier(0.4, 0, 0.2, 1); }
-        /* line 42, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-        html body.help #back-link:hover {
-          background-color: rgba(0, 0, 0, 0.2); }
-        /* line 46, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-        html body.help #back-link #back-icon {
-          opacity: 0.54; }
-
-/* line 54, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-#help-icon {
-  padding: 20px;
-  margin: -20px auto !important; }
-  /* line 58, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #help-icon a {
-    opacity: 0;
-    transition: background-color 375ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    width: 24px;
-    height: 24px;
-    padding: 8px;
-    margin: -8px;
-    border-radius: 64px;
-    display: inline-block; }
-    /* line 68, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    #help-icon a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      opacity: 1; }
-  /* line 74, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #help-icon:hover a {
-    opacity: 1; }
-
-/* line 79, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-#body, #newsfeed-container #newsfeed, #newsfeed-container body.help {
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.87); }
-  @media screen and (max-width: 768px) {
-    /* line 79, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    #body, #newsfeed-container #newsfeed, #newsfeed-container body.help {
-      font-size: 14px; } }
-  /* line 82, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html.transparent-cards #body, html.transparent-cards #newsfeed-container #newsfeed, #newsfeed-container html.transparent-cards #newsfeed, html.transparent-cards #newsfeed-container body.help, #newsfeed-container html.transparent-cards body.help {
-    color: white; }
-  /* line 87, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body p, #newsfeed-container #newsfeed p, #newsfeed-container body.help p {
-    margin-top: 16px;
-    margin-right: 0px;
-    margin-bottom: 16px;
-    margin-left: 0px; }
-  /* line 96, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body blockquote, #newsfeed-container #newsfeed blockquote, #newsfeed-container body.help blockquote {
-    color: rgba(0, 0, 0, 0.54);
-    margin-top: 8px;
-    margin-right: 0px;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    font-style: italic;
-    border-left: 1px solid rgba(0, 0, 0, 0.12);
-    padding-top: 8px;
-    padding-right: 0px;
-    padding-bottom: 8px;
-    padding-left: 24px; }
-    /* line 97, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    html.transparent-cards #body blockquote, html.transparent-cards #newsfeed-container #newsfeed blockquote, #newsfeed-container html.transparent-cards #newsfeed blockquote, html.transparent-cards #newsfeed-container body.help blockquote, #newsfeed-container html.transparent-cards body.help blockquote {
-      color: rgba(255, 255, 255, 0.7); }
-    /* line 108, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    html.transparent-cards #body blockquote, html.transparent-cards #newsfeed-container #newsfeed blockquote, #newsfeed-container html.transparent-cards #newsfeed blockquote, html.transparent-cards #newsfeed-container body.help blockquote, #newsfeed-container html.transparent-cards body.help blockquote {
-      border-left-color: rgba(255, 255, 255, 0.12); }
-    /* line 119, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    #body blockquote i, #newsfeed-container #newsfeed blockquote i, #newsfeed-container body.help blockquote i, #body blockquote em, #newsfeed-container #newsfeed blockquote em, #newsfeed-container body.help blockquote em {
-      font-style: normal; }
-    /* line 123, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    #body blockquote p, #newsfeed-container #newsfeed blockquote p, #newsfeed-container body.help blockquote p {
-      margin-top: 0px;
-      margin-bottom: 0px; }
-  /* line 131, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body h1, #newsfeed-container #newsfeed h1, #newsfeed-container body.help h1 {
-    font-size: 45px;
-    font-weight: 400; }
-  /* line 135, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body h2, #newsfeed-container #newsfeed h2, #newsfeed-container body.help h2 {
-    font-size: 34px;
-    font-weight: 400; }
-  /* line 139, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body h3, #newsfeed-container #newsfeed h3, #newsfeed-container body.help h3 {
-    font-size: 24px;
-    font-weight: 400; }
-  /* line 143, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body h4, #newsfeed-container #newsfeed h4, #newsfeed-container body.help h4 {
-    font-size: 20px;
-    font-weight: 500; }
-  /* line 147, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body h5, #newsfeed-container #newsfeed h5, #newsfeed-container body.help h5 {
-    font-size: 15px;
-    font-weight: 400; }
-    @media screen and (max-width: 768px) {
-      /* line 147, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #body h5, #newsfeed-container #newsfeed h5, #newsfeed-container body.help h5 {
-        font-size: 16px; } }
-  /* line 151, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body h6, #newsfeed-container #newsfeed h6, #newsfeed-container body.help h6 {
-    font-size: 13px;
-    font-weight: 500; }
-    @media screen and (max-width: 768px) {
-      /* line 151, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #body h6, #newsfeed-container #newsfeed h6, #newsfeed-container body.help h6 {
-        font-size: 14px; } }
-  /* line 155, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body hr, #newsfeed-container #newsfeed hr, #newsfeed-container body.help hr {
-    margin-top: 16px;
-    margin-right: -16px;
-    margin-bottom: 16px;
-    margin-left: -16px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
-    /* line 163, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    html.transparent-cards #body hr, html.transparent-cards #newsfeed-container #newsfeed hr, #newsfeed-container html.transparent-cards #newsfeed hr, html.transparent-cards #newsfeed-container body.help hr, #newsfeed-container html.transparent-cards body.help hr {
-      border-bottom-color: rgba(255, 255, 255, 0.12); }
-  /* line 169, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body ul, #newsfeed-container #newsfeed ul, #newsfeed-container body.help ul, #body ol, #newsfeed-container #newsfeed ol, #newsfeed-container body.help ol {
-    padding-left: 20px;
-    margin-top: 16px;
-    margin-right: 0px;
-    margin-bottom: 16px;
-    margin-left: 0px; }
-    /* line 178, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    #body ul li, #newsfeed-container #newsfeed ul li, #newsfeed-container body.help ul li, #body ol li, #newsfeed-container #newsfeed ol li, #newsfeed-container body.help ol li {
-      margin-bottom: 4px; }
-  /* line 183, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body a, #newsfeed-container #newsfeed a, #newsfeed-container body.help a {
-    color: #448aff;
-    text-decoration: none; }
-    /* line 184, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    html.transparent-cards #body a, html.transparent-cards #newsfeed-container #newsfeed a, #newsfeed-container html.transparent-cards #newsfeed a, html.transparent-cards #newsfeed-container body.help a, #newsfeed-container html.transparent-cards body.help a {
-      color: #82b1ff; }
-    /* line 190, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    #body a:hover, #newsfeed-container #newsfeed a:hover, #newsfeed-container body.help a:hover {
-      text-decoration: underline; }
-  /* line 195, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body i, #newsfeed-container #newsfeed i, #newsfeed-container body.help i, #body em, #newsfeed-container #newsfeed em, #newsfeed-container body.help em {
-    font-style: italic; }
-  /* line 199, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body b, #newsfeed-container #newsfeed b, #newsfeed-container body.help b, #body strong, #newsfeed-container #newsfeed strong, #newsfeed-container body.help strong {
-    font-weight: bold; }
-  /* line 203, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body code, #newsfeed-container #newsfeed code, #newsfeed-container body.help code {
-    font-family: "Roboto Mono", "Droid Sans Mono", "Monaco", monospace;
-    background-color: #f5f5f5;
+  /* line 28, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+  html section {
+    position: fixed;
+    top: 0px;
+    height: 100vh; }
+    /* line 33, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+    html section.left {
+      left: 0px; }
+    /* line 37, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+    html section.right {
+      right: 0px; }
+    /* line 41, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+    html section#ace {
+      width: calc(80ch + 6ch + 8px); }
+      /* line 44, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+      html section#ace #editor.ace-tomorrow-night {
+        font-family: "Roboto Mono", "Droid Sans Mono", "Monaco", monospace !important;
+        font-size: 10pt !important;
+        width: 100%;
+        height: 100%; }
+        /* line 50, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+        html section#ace #editor.ace-tomorrow-night .ace_active-line {
+          border-top-right-radius: 2px;
+          border-bottom-right-radius: 2px; }
+        /* line 55, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+        html section#ace #editor.ace-tomorrow-night .ace_gutter {
+          width: 6ch !important;
+          margin-right: 0ch !important;
+          background-color: #181a1c; }
+          /* line 60, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#ace #editor.ace-tomorrow-night .ace_gutter .ace_gutter-active-line {
+            background-color: #232529; }
+          /* line 64, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#ace #editor.ace-tomorrow-night .ace_gutter .ace_gutter-layer {
+            overflow: visible !important; }
+          /* line 68, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#ace #editor.ace-tomorrow-night .ace_gutter .ace_gutter-cell {
+            padding: 0ch 1ch 0ch 0ch !important;
+            width: 5ch !important; }
+        /* line 74, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+        html section#ace #editor.ace-tomorrow-night .ace_heading {
+          color: #b294bb;
+          font-weight: 700; }
+        /* line 79, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+        html section#ace #editor.ace-tomorrow-night .ace_string:not(.ace_blockquote):not(.ace_attribute-value) {
+          color: #c5c8c6; }
+          /* line 82, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#ace #editor.ace-tomorrow-night .ace_string:not(.ace_blockquote):not(.ace_attribute-value).ace_strong {
+            font-weight: 700; }
+          /* line 86, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#ace #editor.ace-tomorrow-night .ace_string:not(.ace_blockquote):not(.ace_attribute-value).ace_emphasis {
+            font-style: italic; }
+          /* line 90, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#ace #editor.ace-tomorrow-night .ace_string:not(.ace_blockquote):not(.ace_attribute-value):not(.ace_emphasis):not(.ace_strong) {
+            color: #81a2be;
+            font-weight: 700;
+            text-decoration: underline; }
+            /* line 95, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html section#ace #editor.ace-tomorrow-night .ace_string:not(.ace_blockquote):not(.ace_attribute-value):not(.ace_emphasis):not(.ace_strong) + .ace_constant {
+              font-weight: 400; }
+        /* line 101, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+        html section#ace #editor.ace-tomorrow-night .ace_blockquote + .ace_string:not(.ace_blockquote) {
+          color: #b5bd68; }
+        /* line 105, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+        html section#ace #editor.ace-tomorrow-night .ace_heading + .ace_string:not(.ace_blockquote) {
+          color: #b294bb;
+          font-weight: 700; }
+        /* line 110, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+        html section#ace #editor.ace-tomorrow-night .ace_constant {
+          font-weight: 700;
+          color: #de935f; }
+        /* line 115, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+        html section#ace #editor.ace-tomorrow-night .ace_url {
+          text-decoration: underline; }
+      /* line 120, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+      html section#ace ::-webkit-scrollbar {
+        width: 0px;
+        height: 0px; }
+    /* line 126, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+    html section#preview {
+      width: calc(100vw - (80ch + 6ch + 8px)); }
+      /* line 129, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+      html section#preview > div {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        margin: 16px;
+        width: calc(100% - 32px);
+        height: calc(100% - 32px);
+        background-color: #ffffff;
+        border-radius: 2px; }
+        /* line 138, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+        html section#preview > div #output {
+          font-size: 13px;
+          font-weight: 400;
+          padding: 0px 16px;
+          display: inline-block;
+          width: calc(100% - 32px);
+          height: 100%;
+          font-family: "Roboto", "Noto Sans", "Arial", "Helvetica", sans-serif;
+          overflow: auto;
+          color: rgba(0, 0, 0, 0.87); }
+          @media screen and (max-width: 768px) {
+            /* line 138, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html section#preview > div #output {
+              font-size: 14px; } }
+          /* line 148, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html.transparent-cards html section#preview > div #output {
+            color: white; }
+          /* line 153, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output p {
+            margin-top: 16px;
+            margin-right: 0px;
+            margin-bottom: 16px;
+            margin-left: 0px; }
+          /* line 162, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output blockquote {
+            color: rgba(0, 0, 0, 0.54);
+            margin-top: 8px;
+            margin-right: 0px;
+            margin-bottom: 8px;
+            margin-left: 8px;
+            font-style: italic;
+            border-left: 1px solid rgba(0, 0, 0, 0.12);
+            padding-top: 8px;
+            padding-right: 0px;
+            padding-bottom: 8px;
+            padding-left: 24px; }
+            /* line 163, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html.transparent-cards html section#preview > div #output blockquote {
+              color: rgba(255, 255, 255, 0.7); }
+            /* line 174, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html.transparent-cards html section#preview > div #output blockquote {
+              border-left-color: rgba(255, 255, 255, 0.12); }
+            /* line 185, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html section#preview > div #output blockquote i, html section#preview > div #output blockquote em {
+              font-style: normal; }
+            /* line 189, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html section#preview > div #output blockquote p {
+              margin-top: 0px;
+              margin-bottom: 0px; }
+          /* line 197, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output h1 {
+            font-size: 45px;
+            font-weight: 400; }
+          /* line 201, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output h2 {
+            font-size: 34px;
+            font-weight: 400; }
+          /* line 205, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output h3 {
+            font-size: 24px;
+            font-weight: 400; }
+          /* line 209, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output h4 {
+            font-size: 20px;
+            font-weight: 500; }
+          /* line 213, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output h5 {
+            font-size: 15px;
+            font-weight: 400; }
+            @media screen and (max-width: 768px) {
+              /* line 213, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+              html section#preview > div #output h5 {
+                font-size: 16px; } }
+          /* line 217, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output h6 {
+            font-size: 13px;
+            font-weight: 500; }
+            @media screen and (max-width: 768px) {
+              /* line 217, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+              html section#preview > div #output h6 {
+                font-size: 14px; } }
+          /* line 221, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output hr {
+            margin-top: 16px;
+            margin-right: -16px;
+            margin-bottom: 16px;
+            margin-left: -16px;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+            /* line 229, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html.transparent-cards html section#preview > div #output hr {
+              border-bottom-color: rgba(255, 255, 255, 0.12); }
+          /* line 235, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output ul, html section#preview > div #output ol {
+            padding-left: 20px;
+            margin-top: 16px;
+            margin-right: 0px;
+            margin-bottom: 16px;
+            margin-left: 0px; }
+            /* line 244, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html section#preview > div #output ul li, html section#preview > div #output ol li {
+              margin-bottom: 4px; }
+          /* line 249, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output a {
+            color: #448aff;
+            text-decoration: none; }
+            /* line 250, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html.transparent-cards html section#preview > div #output a {
+              color: #82b1ff; }
+            /* line 256, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html section#preview > div #output a:hover {
+              text-decoration: underline; }
+          /* line 261, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output i, html section#preview > div #output em {
+            font-style: italic; }
+          /* line 265, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output b, html section#preview > div #output strong {
+            font-weight: bold; }
+          /* line 269, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output code {
+            font-family: "Roboto Mono", "Droid Sans Mono", "Monaco", monospace;
+            background-color: #f5f5f5;
+            border-radius: 2px;
+            padding: 1px 4px;
+            margin: 0px 2px; }
+            /* line 271, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html.transparent-cards html section#preview > div #output code {
+              background-color: transparent;
+              border: 1px solid rgba(255, 255, 255, 0.12); }
+          /* line 281, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output pre {
+            margin: 16px 0px; }
+            /* line 283, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html:not(.code-block-scroll) html section#preview > div #output pre {
+              white-space: pre-wrap; }
+            /* line 287, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html section#preview > div #output pre code {
+              display: block;
+              font-size: 10pt;
+              padding: 8px;
+              margin: 0px;
+              overflow-x: auto; }
+          /* line 296, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output > img {
+            border-radius: 2px; }
+          /* line 300, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+          html section#preview > div #output ::selection {
+            background-color: #82b1ff; }
+            /* line 301, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+            html.transparent-cards html section#preview > div #output ::selection {
+              background-color: rgba(255, 255, 255, 0.2); }
+  /* line 311, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+  html #toolbar {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: fixed;
+    top: 0px;
+    width: calc(80ch - 8px);
+    left: 6ch;
+    height: 40px;
+    margin: 4px;
+    background-color: #242729;
     border-radius: 2px;
-    padding: 1px 4px;
-    margin: 0px 2px; }
-    /* line 205, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    html.transparent-cards #body code, html.transparent-cards #newsfeed-container #newsfeed code, #newsfeed-container html.transparent-cards #newsfeed code, html.transparent-cards #newsfeed-container body.help code, #newsfeed-container html.transparent-cards body.help code {
-      background-color: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.12); }
-  /* line 215, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body pre, #newsfeed-container #newsfeed pre, #newsfeed-container body.help pre {
-    margin: 16px 0px; }
-    /* line 217, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    html:not(.code-block-scroll) #body pre, html:not(.code-block-scroll) #newsfeed-container #newsfeed pre, #newsfeed-container html:not(.code-block-scroll) #newsfeed pre, html:not(.code-block-scroll) #newsfeed-container body.help pre, #newsfeed-container html:not(.code-block-scroll) body.help pre {
-      white-space: pre-wrap; }
-    /* line 221, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    #body pre code, #newsfeed-container #newsfeed pre code, #newsfeed-container body.help pre code {
-      display: block;
-      font-size: 10pt;
-      padding: 8px;
-      margin: 0px;
-      overflow-x: auto; }
-  /* line 230, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body > img, #newsfeed-container #newsfeed > img, #newsfeed-container body.help > img {
-    border-radius: 2px; }
-  /* line 234, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #body ::selection, #newsfeed-container #newsfeed ::selection, #newsfeed-container body.help ::selection {
-    background-color: #82b1ff; }
-    /* line 235, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    html.transparent-cards #body ::selection, html.transparent-cards #newsfeed-container #newsfeed ::selection, #newsfeed-container html.transparent-cards #newsfeed ::selection, html.transparent-cards #newsfeed-container body.help ::selection, #newsfeed-container html.transparent-cards body.help ::selection {
-      background-color: rgba(255, 255, 255, 0.2); }
-
-/* line 242, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-#main-header {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-  height: 192px;
-  background-color: #3f51b5;
-  color: #ffffff;
-  user-select: none; }
-  /* line 249, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html:not(.blue-background) #main-header {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
-  /* line 255, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #main-header .row {
-    margin: 0px;
-    padding: 20px;
-    height: 24px;
-    position: relative; }
-    /* line 261, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    #main-header .row span {
-      display: block;
+    padding: 4px;
+    user-select: none; }
+    /* line 325, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+    html #toolbar a {
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      min-width: 24px;
       height: 24px;
-      line-height: 24px; }
-      /* line 266, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #main-header .row span.left {
-        float: left;
-        text-align: left; }
-      /* line 271, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #main-header .row span.right {
-        float: right;
-        text-align: right; }
-      /* line 276, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #main-header .row span.center {
-        margin: 0px auto;
-        width: 512px;
-        text-align: center; }
-      /* line 282, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #main-header .row span#time {
-        font-size: 112px;
-        font-weight: 300;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        height: 88px;
-        line-height: 88px;
-        padding: 20px;
-        padding-left: 40px;
-        transform: translateY(8px); }
-        /* line 293, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-        html.monospace-clock #main-header .row span#time {
-          font-family: "Roboto Mono", "Droid Sans Mono", "Monaco", monospace; }
-      /* line 298, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #main-header .row span#date {
+      line-height: 24px;
+      padding: 8px;
+      margin-right: 4px;
+      border-radius: 20px;
+      color: #ffffff;
+      font-family: "Roboto", "Noto Sans", "Arial", "Helvetica", sans-serif;
+      transition: background-color 375ms cubic-bezier(0.4, 0, 0.2, 1);
+      float: left; }
+      /* line 337, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+      html #toolbar a:not(.title) {
+        cursor: pointer; }
+      /* line 342, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+      html #toolbar a.title {
         font-size: 20px;
         font-weight: 500;
-        padding-left: 20px;
-        transform: translateY(-4px); }
-      /* line 305, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #main-header .row span#temp {
-        font-size: 56px;
-        font-weight: 400;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        height: 88px;
-        line-height: 88px;
-        padding: 20px;
-        padding-right: 160px; }
-        /* line 315, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-        html.monospace-clock #main-header .row span#temp {
-          font-family: "Roboto Mono", "Droid Sans Mono", "Monaco", monospace; }
-        /* line 319, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-        #main-header .row span#temp::after {
-          content: " °C"; }
-      /* line 326, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #main-header .row span#weather {
-        font-size: 20px;
-        font-weight: 500;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        padding: 20px;
-        padding-right: 160px;
-        transform: translateY(20px); }
-      /* line 337, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #main-header .row span#weather-icon {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        height: 120px;
-        width: 96px;
-        padding: 16px;
-        padding-right: 32px; }
-        /* line 346, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-        #main-header .row span#weather-icon img {
-          width: 96px;
-          height: 96px;
-          margin: 12px 0px; }
-      /* line 353, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      #main-header .row span#weather-last-updated {
-        font-size: 12px;
-        font-weight: 400;
-        color: rgba(255, 255, 255, 0.5);
-        line-height: 16px; }
-        /* line 359, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-        #main-header .row span#weather-last-updated small, #main-header .row span#weather-last-updated span#temp::after {
-          font-size: 100%; }
-
-/* line 367, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-#school-name {
-  font-size: 24px;
-  font-weight: 400;
-  position: relative;
-  top: -20px;
-  height: 56px !important;
-  line-height: initial !important; }
-
-/* line 376, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-#slogan {
-  font-size: 15px;
-  font-weight: 400;
-  margin-top: 8px; }
-  @media screen and (max-width: 768px) {
-    /* line 376, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    #slogan {
-      font-size: 16px; } }
-
-/* line 382, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-small, #main-header .row span#temp::after {
-  font-size: 60%; }
-
-/* line 386, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-footer#quote {
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  margin: 16px;
-  border-radius: 2px;
-  background-color: #ffffff;
-  height: 64px;
-  width: calc(100% - 32px);
-  display: block;
-  line-height: 64px;
-  overflow: hidden;
-  font-size: 34px; }
-  /* line 387, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html:not(.transparent-cards) footer#quote {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
-  /* line 396, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html.transparent-cards footer#quote {
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.12); }
-  /* line 401, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  footer#quote html.transparent-cards {
-    height: 62px; }
-  /* line 405, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  footer#quote html.transparent-cards {
-    width: calc(100% - 34px); }
-  /* line 412, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html:not(.sans-font-quote) footer#quote {
-    font-family: "Roboto Slab", "Noto Serif", serif;
-    font-weight: 300; }
-  /* line 419, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  footer#quote span {
-    display: inline-block;
-    transform: translateX(100%);
-    height: 64px;
-    animation: quote-scroll 20s linear infinite;
-    color: rgba(0, 0, 0, 0.54); }
-    /* line 424, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    html.transparent-cards footer#quote span {
-      color: rgba(255, 255, 255, 0.7); }
-    /* line 429, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-    footer#quote span b {
-      color: rgba(0, 0, 0, 0.87); }
-      /* line 430, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      html.transparent-cards footer#quote span b {
-        color: white; }
-      /* line 434, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      html:not(.sans-font-quote) footer#quote span b {
-        font-weight: 300; }
-      /* line 437, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-      html.sans-font-quote footer#quote span b {
-        font-weight: 400; }
-
-/* line 444, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-#newsfeed-container {
-  position: fixed;
-  background-color: #ffffff;
-  height: calc(100vh - 304px);
-  width: calc(100vw - ((100vh - 304px) * (16 / 9)) - 80px);
-  top: 208px;
-  left: 16px;
-  border-radius: 2px;
-  overflow: hidden;
-  padding: 0px 16px; }
-  /* line 445, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html:not(.transparent-cards) #newsfeed-container {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
-  /* line 450, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html.transparent-cards #newsfeed-container {
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.12); }
-  /* line 455, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html.transparent-cards #newsfeed-container {
-    height: calc(100vh - 306px); }
-  /* line 459, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html.transparent-cards #newsfeed-container {
-    width: calc(100vw - ((100vh - 304px) * (16 / 9)) - 82px); }
-  /* line 469, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #newsfeed-container #newsfeed, #newsfeed-container body.help {
-    animation: newsfeed-scroll 30s linear infinite; }
-
-/* line 476, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-#video-container {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  background-color: #000000;
-  height: calc(100vh - 304px);
-  width: calc((100vh - 304px) * (16 / 9));
-  position: fixed;
-  top: 208px;
-  right: 16px; }
-  /* line 485, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html.video-round-corners #video-container {
-    border-radius: 2px;
-    overflow: hidden; }
-  /* line 490, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  #video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none; }
-
-/* line 497, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-::selection {
-  background-color: #82b1ff; }
-  /* line 498, /home/arm32/Projects/Web/Mr. Chisolm’s display/scss/main.scss */
-  html.transparent-cards ::selection {
-    background-color: rgba(255, 255, 255, 0.2); }
+        text-transform: none; }
+      /* line 348, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+      html #toolbar a:not(.title):hover {
+        background-color: rgba(255, 255, 255, 0.2); }
+      /* line 352, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+      html #toolbar a :not(img) {
+        margin: 0px 14px; }
+      /* line 356, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+      html #toolbar a[name="close"] {
+        float: right; }
+    /* line 361, /home/arm32/Projects/Web/Material Mark/scss/main.scss */
+    html #toolbar hr {
+      width: 1px;
+      height: 100%;
+      border: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      margin: 0px;
+      margin-left: 7px;
+      margin-right: 12px;
+      float: left;
+      display: inline-block; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,9 +1,0 @@
-@keyframes quote-scroll {
-    0%   { transform: translateX(100vw); }
-    100% { transform: translateX(calc(-100% - 8px)); }
-}
-
-@keyframes newsfeed-scroll {
-    0%   { transform: translateY(calc(100vh - 304px)); }
-    100% { transform: translateY(calc(-100% - 48px)); }
-}

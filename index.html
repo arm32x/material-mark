@@ -1,95 +1,57 @@
 <!doctype html>
 <html>
     <head>
-        <!-- Configuration options                   -->
-        <!-- View the help page for more information -->
-        <script>
-        let options = {
-            // Clock and date
-            showSeconds: false,
-            mode: 0,
-            smallDate: false,
-            dateFormat: 0,
-            monospaceClock: false,
-            
-            // Newsfeed
-            codeBlockScroll: false,
-            stableSpeed: true,
-            speed: 40,
-            
-            // Main layout
-            blueBackground: true,
-            transparentCards: false,
-            darkerGrayBg: false,
-            
-            // Quote
-            sansFontQuote: false,
-            stableQuote: true,
-            quoteSpeed: 70,
-            
-            // Video player
-            videoRoundCorners: true,
-            
-            // Weather widget
-            cityId: 6058560,
-            apiKey: "99403a5bba50c8ee3d5a2af2c5a571a4",
-            updateHours: [2, 5, 8, 11, 14, 17, 20, 23],
-            requestsPerUpdate: 1,
-            delayBetweenRequests: 40,
-            
-            // Misc.
-            fixFileProtocol: true
-        };
-        </script>
-        
         <meta charset = "utf-8" />
         <meta name = "viewport" content = "width=device-width, initial-scale=1" />
-        <meta name = "application-name" content = "Mr. Chisolm’s display" />
+        <meta name = "application-name" content = "Material Mark" />
         <meta name = "author" content = "ARM32" />
         
-        <title>Mr. Chisolm’s display</title>
+        <title>Material Mark</title>
         
         <!-- Link Google Fonts, adding custom fonts to the website -->
-        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Roboto+Mono:300,400|Roboto+Slab:300|Roboto:400,400i,500,700,700i" />
+        <link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,700|Roboto+Slab:300|Roboto:400,400i,500,700,700i" />
         
         <!-- Markdown parser -->
         <script src = "js/lib/marked.js"></script>
         
+        <script src = "js/lib/ace/ace.js"></script>
+        
+        <script src = "js/lib/lz-string.js"></script>
+        
         <link rel = "stylesheet" href = "css/main.css" />
-        <script src = "js/content-load.js" defer></script>
-        <script src = "js/header-update.js" defer></script>
+        <script src = "js/main.js" defer></script>
     </head>
     <body>
-        <header id = "main-header">
-            <div id = "top-row" class = "row">
-                <span id = "time" class = "left"></span>
-                <span id = "help-icon" class = "center">
-                    <a href = "help/index.html">
-                        <img src = "images/icons/help.svg" />
-                    </a>
-                </span>
-                <span id = "temp" class = "right"></span>
-                <span id = "weather-icon" class = "right"></span>
+        <section id = "ace" class = "left">
+            <div id = "editor"></div>
+        </section>
+        <section id = "preview" class = "right">
+            <div>
+                <article id = "output">
+                    
+                </article>
             </div>
-            <div id = "center-row" class = "row">
-                <span id = "school-name" class = "center">Byron Northview<span id = "slogan">Home of the Bobcats</span></span>
-                <span id = "weather" class = "right"></span>
-            </div>
-            <div id = "bottom-row" class = "row">
-                <span id = "date" class = "left"></span>
-                <span id = "weather-last-updated" class = "right"></span>
-            </div>
+        </section>
+        <header id = "toolbar"><!--
+            <a name = "bold"><img src = "../images/icons/format-bold.svg" /></a>
+            <a name = "italic"><img src = "../images/icons/format-italic.svg" /></a>
+            <a name = "strikethrough"><img src = "../images/icons/format-strikethrough.svg" /></a>
+            <hr />
+            <a name = "header-decrease"><img src = "../images/icons/format-header-decrease.svg" /></a>
+            <a name = "header-increase"><img src = "../images/icons/format-header-increase.svg" /></a>
+            <a name = "hr"><img src = "../images/icons/format-hr.svg" /></a>
+            <hr />
+            <a name = "list-bulleted"><img src = "../images/icons/format-list-bulleted.svg" /></a>
+            <a name = "list-numbered"><img src = "../images/icons/format-list-numbers.svg" /></a>
+            <a name = "quote"><img src = "../images/icons/format-quote.svg" /></a>
+            <hr />
+            <a name = "code"><img src = "../images/icons/format-code.svg" /></a>
+            <a name = "code-block"><img src = "../images/icons/format-code-block.svg" /></a>-->
+            
+            <a class = "title"><span>Material Mark</span></a>
+            
+            <!--<a name = "close"><img src = "../images/icons/close-w.svg" /></a>-->
         </header>
-        <aside id = "newsfeed-container">
-            <main id = "newsfeed">
-                <!-- Please place content in newsfeed.md -->
-            </main>
-        </aside>
-        <main id = "video-container">
-            <!-- Please paste video embed codes in in video.html -->
-        </main>
-        <footer id = "quote">
-            <span>“<b id = "quote-text"></b>” –<b id = "quote-author"></b></span>
-        </footer>
+        
     </body>
 </html>
