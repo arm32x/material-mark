@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/arm32x/material-mark#readme",
   "devDependencies": {
+    "babel-preset-env": "^1.5.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.1",
