@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/arm32x/material-mark/issues"
   },
-  "homepage": "https://github.com/arm32x/material-mark#readme"
+  "homepage": "https://github.com/arm32x/material-mark#readme",
+  "devDependencies": {
+    "babel-core": "^6.25.0"
+  }
 }
