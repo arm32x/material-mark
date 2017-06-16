@@ -1,0 +1,18 @@
+{
+  "name": "material-mark",
+  "version": "1.0.0",
+  "description": "A Material Design Markdown editor",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arm32x/material-mark.git"
+  },
+  "author": "ARM32",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/arm32x/material-mark/issues"
+  },
+  "homepage": "https://github.com/arm32x/material-mark#readme"
+}
